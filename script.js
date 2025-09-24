@@ -15,9 +15,9 @@ submit.addEventListener('click', (e) => {
     if (!gameStatus) return;  // prevent clicking after game over
 
     let guessNum = parseInt(guess.value);
-    if (isNaN(guessNum)) {
-        alert('Enter Integer !')
-        return;
+    if (isNaN(guessNum) || !Number.isInteger(guessNum)) {
+    alert('Enter a valid integer!');
+    return;
     }
     cndnCheck(guessNum);
     guess.value = "";
