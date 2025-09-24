@@ -15,18 +15,12 @@ submit.addEventListener('click', (e) => {
     if (!gameStatus) return;  // prevent clicking after game over
 
     let guessNum = parseInt(guess.value);
-    if (isNaN(guessNum)) return;
-
-    cndnCheck(guessNum);
-
-    
-    // Only clear input if game is not over
-    if (gameStatus) {
-        guess.value = "";
-        guess.focus(); // keep focus on input, so keyboard stays
-    } else {
-        guess.blur(); // hide keyboard when game ends
+    if (isNaN(guessNum)) {
+        alert('Enter Integer !')
+        return;
     }
+    cndnCheck(guessNum);
+    guess.value = "";
 
     // disable submit if attempts reach 0
     if (count <= 0) submit.disabled = true;
